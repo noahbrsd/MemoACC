@@ -1,0 +1,10 @@
+D:\Utilisateur\Noahb\Documents\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.csproj.AssemblyReference.cache
+D:\Utilisateur\Noahb\Documents\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utilisateur\Noahb\Documents\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.AssemblyInfoInputs.cache
+D:\Utilisateur\Noahb\Documents\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.AssemblyInfo.cs
+D:\Utilisateur\Noahb\Documents\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.csproj.CoreCompileInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.csproj.AssemblyReference.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.AssemblyInfoInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.AssemblyInfo.cs
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementBroadcast\obj\Debug\net6.0\RaceElementBrodcasting.csproj.CoreCompileInputs.cache

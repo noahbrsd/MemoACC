@@ -1,0 +1,12 @@
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\bin\Debug\net8.0\RaceElementUtil.deps.json
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\bin\Debug\net8.0\RaceElementUtil.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\bin\Debug\net8.0\RaceElementUtil.pdb
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.csproj.AssemblyReference.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.AssemblyInfoInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.AssemblyInfo.cs
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.csproj.CoreCompileInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\refint\RaceElementUtil.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\RaceElementUtil.pdb
+D:\Utilisateur\Noahb\Documents\projet ACC\RaceElementUtil\obj\Debug\net8.0\ref\RaceElementUtil.dll

@@ -1,0 +1,17 @@
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.csproj.AssemblyReference.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.GeneratedMSBuildEditorConfig.editorconfig
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.AssemblyInfoInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.AssemblyInfo.cs
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.csproj.CoreCompileInputs.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\ProjetACC.exe
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\ProjetACC.deps.json
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\ProjetACC.runtimeconfig.json
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\ProjetACC.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\ProjetACC.pdb
+D:\Utilisateur\Noahb\Documents\projet ACC\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.csproj.Up2Date
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\refint\ProjetACC.dll
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.pdb
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ProjetACC.genruntimeconfig.cache
+D:\Utilisateur\Noahb\Documents\projet ACC\obj\Debug\net6.0\ref\ProjetACC.dll
