@@ -8,7 +8,7 @@ namespace MemoPilotes
         private System.Windows.Forms.Button buttonEnregistrer;
         private System.Windows.Forms.Label labelNoteExistante;
         private System.Windows.Forms.Button buttonSpecialEvent;
-
+        private System.Windows.Forms.Button buttonUpdate;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -72,6 +72,21 @@ namespace MemoPilotes
             this.buttonSpecialEvent.Text = "Événement spécial";
             this.buttonSpecialEvent.UseVisualStyleBackColor = true;
             this.buttonSpecialEvent.Click += new System.EventHandler(this.buttonSpecialEvent_Click);
+            //
+            // Update button
+            //
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonUpdate.Location = new System.Drawing.Point(518, 160);  // Position du bouton
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(100, 23);  // Taille du bouton
+            this.buttonUpdate.TabIndex = 5;  // Index de tabulation, doit être unique
+            this.buttonUpdate.Text = "Update";  // Texte affiché sur le bouton
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+
+            // Lien entre le bouton et son gestionnaire d'événements
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+
             // 
             // MainForm
             // 
@@ -83,6 +98,7 @@ namespace MemoPilotes
             this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.textBoxNote);
             this.Controls.Add(this.listBoxPilotes);
+            this.Controls.Add(this.buttonUpdate);
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);

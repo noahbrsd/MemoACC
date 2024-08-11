@@ -100,7 +100,7 @@ namespace MemoPilotes
                 DatabaseHelper.AjouterOuMettreAJourPilote(nomPilote, note);
                 MessageBox.Show("Note enregistrée !");
                 textBoxNote.Clear();
-                await ChargerPilotes();  // Recharger les pilotes pour mettre à jour les notes
+                // await ChargerPilotes();  // Recharger les pilotes pour mettre à jour les notes
             }
             else
             {
@@ -235,14 +235,28 @@ namespace MemoPilotes
             _udpClient.Shutdown();
             _udpClient.Dispose();
         }
-        }
+        
 
     // Event handler to display driver names
     
+    private void MettreAJourListePilotes(string[] nomsDesPilotes)
+    {
+        listBoxPilotes.Items.Clear();
+        listBoxPilotes.Items.AddRange(nomsDesPilotes);
+        Console.WriteLine("MainForm: Noms des pilotes ajoutés au ListBox.");
+    }
 
+    private async void buttonUpdate_Click(object sender, EventArgs e)
+    {
+        // Appeler la méthode pour récupérer les noms des pilotes
+        string[] nomsDesPilotes = await ObtenirNomsDesPilotesAsync();
+        MettreAJourListePilotes(nomsDesPilotes);
+    }
+            
+    }     
+}       
             
             
-            
-}
+        
     
 

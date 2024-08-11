@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3f3gTdXPsdM=",
+  "dgSpecHash": "ccevrMiMwvk=",
   "success": true,
-  "projectFilePath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj",
+  "projectFilePath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Noahb\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Noahb\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

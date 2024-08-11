@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj": {}
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj": {}
   },
   "projects": {
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
+        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
         "projectName": "RaceElementBrodcasting",
-        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
+        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
         "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\obj\\",
+        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
-                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj"
+              "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj",
+        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj",
         "projectName": "RaceElementUtil",
-        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj",
+        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj",
         "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\obj\\",
+        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -130,14 +130,14 @@
         }
       }
     },
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj": {
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj",
+        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj",
         "projectName": "waveform",
-        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj",
+        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj",
         "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\obj\\",
+        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -152,11 +152,11 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
-                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj"
+              "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
+                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj"
               },
-              "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
-                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj"
+              "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+                "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj"
               }
             }
           }

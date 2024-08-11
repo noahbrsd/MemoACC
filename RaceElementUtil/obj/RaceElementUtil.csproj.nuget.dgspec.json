@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {}
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {}
   },
   "projects": {
-    "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+    "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj",
+        "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj",
         "projectName": "RaceElementUtil",
-        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj",
+        "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj",
         "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\obj\\",
+        "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"

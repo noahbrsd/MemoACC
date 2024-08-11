@@ -78,11 +78,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
+      "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
       "projectName": "RaceElementBrodcasting",
-      "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
+      "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj",
       "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-      "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\obj\\",
+      "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -97,8 +97,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
-              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj"
+            "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj"
             }
           }
         }

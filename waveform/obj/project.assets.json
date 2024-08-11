@@ -1301,11 +1301,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj",
+      "projectUniqueName": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj",
       "projectName": "waveform",
-      "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\waveform.csproj",
+      "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\waveform.csproj",
       "packagesPath": "C:\\Users\\Noahb\\.nuget\\packages\\",
-      "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\waveform\\obj\\",
+      "outputPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\waveform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Noahb\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1320,11 +1320,11 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
-              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj"
+            "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj": {
+              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementBroadcast\\RaceElementBrodcasting.csproj"
             },
-            "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj": {
-              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet ACC\\RaceElementUtil\\RaceElementUtil.csproj"
+            "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj": {
+              "projectPath": "D:\\Utilisateur\\Noahb\\Documents\\projet_ACC\\MemoACC\\RaceElementUtil\\RaceElementUtil.csproj"
             }
           }
         }
