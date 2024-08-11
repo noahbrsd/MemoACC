@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RaceElementUtil")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+849a9b7e3accbd0ede0fb6f2cf077b122c7dc6e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("RaceElementUtil")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RaceElementUtil")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
