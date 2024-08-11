@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("waveform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d44dc71e26a68a872a6c614d534f22c8ab699cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eebdfad8aafda7ab6512930980b2a47ce30a68dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("waveform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("waveform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

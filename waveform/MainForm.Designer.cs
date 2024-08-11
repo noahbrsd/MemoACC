@@ -9,6 +9,7 @@ namespace MemoPilotes
         private System.Windows.Forms.Label labelNoteExistante;
         private System.Windows.Forms.Button buttonSpecialEvent;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonCopyNote;
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -88,6 +89,19 @@ namespace MemoPilotes
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
 
             // 
+            // buttonCopierNote
+            // 
+            this.buttonCopyNote = new System.Windows.Forms.Button();
+            this.buttonCopyNote.Location = new System.Drawing.Point(518, 202);  // Choisissez la position appropriée
+            this.buttonCopyNote.Name = "buttonCopyNote";
+            this.buttonCopyNote.Size = new System.Drawing.Size(100, 23);
+            this.buttonCopyNote.TabIndex = 5;
+            this.buttonCopyNote.Text = "Copy Note";
+            this.buttonCopyNote.UseVisualStyleBackColor = true;
+            this.buttonCopyNote.Click += new System.EventHandler(this.buttonCopyNote_Click);
+            
+
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +113,7 @@ namespace MemoPilotes
             this.Controls.Add(this.textBoxNote);
             this.Controls.Add(this.listBoxPilotes);
             this.Controls.Add(this.buttonUpdate);
+            this.Controls.Add(this.buttonCopyNote);
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);

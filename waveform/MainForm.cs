@@ -91,7 +91,7 @@ namespace MemoPilotes
             }
         }
 
-        private async void buttonEnregistrer_Click(object sender, EventArgs e)
+        private void buttonEnregistrer_Click(object sender, EventArgs e)
         {
             if (listBoxPilotes.SelectedItem != null && !string.IsNullOrEmpty(textBoxNote.Text))
             {
@@ -252,7 +252,30 @@ namespace MemoPilotes
         string[] nomsDesPilotes = await ObtenirNomsDesPilotesAsync();
         MettreAJourListePilotes(nomsDesPilotes);
     }
-            
+
+    private void buttonCopyNote_Click(object sender, EventArgs e){
+    string nomPilote = listBoxPilotes.SelectedItem.ToString();
+
+    // Vérifie si une note est sélectionnée dans la ListBox des notes
+    if (DatabaseHelper.ObtenirNotePilote(nomPilote) != null)
+    {
+
+        // Récupère le texte de la note sélectionnée
+        string noteText = DatabaseHelper.ObtenirNotePilote(nomPilote);
+
+        // Copie le texte dans le presse-papiers
+        Clipboard.SetText(noteText);
+
+        // Optionnel: Affiche un message de confirmation
+        // MessageBox.Show("La note a été copiée dans le presse-papiers.", "Note copiée", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+    else
+    {
+        // Optionnel: Affiche un message d'erreur si aucune note n'est sélectionnée
+        MessageBox.Show("Aucune note sélectionnée à copier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+    }
+}
+
     }     
 }       
             
