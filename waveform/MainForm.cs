@@ -121,7 +121,7 @@ namespace MemoPilotes
         private void buttonSpecialEvent_Click(object sender, EventArgs e)
         {
             // Ouvre l'interface spéciale pour les événements avec jusqu'à 100 pilotes
-            var specialForm = new SpecialEventForm();
+            var specialForm = new SpeMainForm();
             specialForm.ShowDialog();
         }
 
