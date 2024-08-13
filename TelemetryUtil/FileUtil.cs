@@ -2,7 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 
-namespace RaceElement.Util;
+namespace Telemetry.Util;
 
 public class FileUtil
 {

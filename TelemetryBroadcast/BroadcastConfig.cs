@@ -1,10 +1,10 @@
 using Newtonsoft.Json;
-using RaceElement.Util;
+using Telemetry.Util;
 using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace RaceElement.Broadcast;
+namespace Telemetry.Broadcast;
 
     public sealed class BroadcastConfig
     {

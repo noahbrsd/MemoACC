@@ -3,12 +3,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using  RaceElement.Util;
+using  Telemetry.Util;
 using System.Collections.Generic;
-using RaceElement.Broadcast.Structs;
-using RaceElement.Broadcast;
+using Telemetry.Broadcast.Structs;
+using Telemetry.Broadcast;
 
-namespace RaceElement.Broadcast
+namespace Telemetry.Broadcast
 {
     public class ACCUdpRemoteClient : IDisposable
     {
@@ -134,10 +134,7 @@ namespace RaceElement.Broadcast
 
         public List<CarInfo> GetPilots()
         {
-            // foreach (var car in MessageHandler.GetEntryListCars())
-            // {
-            //     Console.WriteLine(car.DriverName);
-            // }
+            
             return MessageHandler.GetEntryListCars();
         }
 

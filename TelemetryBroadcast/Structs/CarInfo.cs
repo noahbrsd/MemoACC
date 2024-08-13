@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RaceElement.Broadcast.Structs;
+namespace Telemetry.Broadcast.Structs;
 
 public sealed class CarInfo
 {

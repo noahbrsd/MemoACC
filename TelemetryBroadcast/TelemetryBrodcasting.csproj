@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RaceElementUtil\RaceElementUtil.csproj" />
+    <ProjectReference Include="..\TelemetryUtil\TelemetryUtil.csproj" />
   </ItemGroup>
 
 </Project>

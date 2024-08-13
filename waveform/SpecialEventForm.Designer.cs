@@ -5,7 +5,7 @@ namespace MemoPilotes
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.ListBox listBoxPilotes;
         private System.Windows.Forms.TextBox textBoxNote;
-        private System.Windows.Forms.Button buttonEnregistrer;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelNoteExistante;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonCopyNote;
@@ -23,7 +23,7 @@ namespace MemoPilotes
         {
             this.listBoxPilotes = new System.Windows.Forms.ListBox();
             this.textBoxNote = new System.Windows.Forms.TextBox();
-            this.buttonEnregistrer = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.labelNoteExistante = new System.Windows.Forms.Label();
             
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -50,15 +50,15 @@ namespace MemoPilotes
             this.textBoxNote.TabIndex = 1;
 
             // 
-            // buttonEnregistrer
+            // buttonSave
             // 
-            this.buttonEnregistrer.Location = new System.Drawing.Point(218, 118);
-            this.buttonEnregistrer.Name = "buttonEnregistrer";
-            this.buttonEnregistrer.Size = new System.Drawing.Size(100, 23);
-            this.buttonEnregistrer.TabIndex = 2;
-            this.buttonEnregistrer.Text = "Enregistrer";
-            this.buttonEnregistrer.UseVisualStyleBackColor = true;
-            this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
+            this.buttonSave.Location = new System.Drawing.Point(218, 118);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(100, 23);
+            this.buttonSave.TabIndex = 2;
+            this.buttonSave.Text = "Enregistrer";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
 
             // 
             // labelNoteExistante
@@ -99,7 +99,7 @@ namespace MemoPilotes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 393);
             this.Controls.Add(this.labelNoteExistante);
-            this.Controls.Add(this.buttonEnregistrer);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxNote);
             this.Controls.Add(this.listBoxPilotes);
             this.Controls.Add(this.buttonUpdate);

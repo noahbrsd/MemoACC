@@ -1,4 +1,4 @@
-﻿namespace RaceElement.Broadcast;
+﻿namespace Telemetry.Broadcast;
 
 public enum DriverCategory
 {

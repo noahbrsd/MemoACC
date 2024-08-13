@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace RaceElement.Util;
+namespace Telemetry.Util;
 
 /// <summary>
 /// Simple thread safe logging helper

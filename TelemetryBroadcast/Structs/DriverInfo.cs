@@ -1,4 +1,4 @@
-﻿namespace RaceElement.Broadcast.Structs;
+﻿namespace Telemetry.Broadcast.Structs;
 
 public struct DriverInfo
 {

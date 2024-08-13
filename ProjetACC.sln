@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "waveform", "waveform\waveform.csproj", "{DFE5FB67-67DA-4F4B-AB3B-1B20730D8E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceElementUtil", "RaceElementUtil\RaceElementUtil.csproj", "{21B652AD-D6FD-426B-A2C9-E2865111BD99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelemetryUtil", "TelemetryUtil\TelemetryUtil.csproj", "{21B652AD-D6FD-426B-A2C9-E2865111BD99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaceElementBrodcasting", "RaceElementBroadcast\RaceElementBrodcasting.csproj", "{72207CBA-E957-4CF2-B4F6-81E296BB714A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelemetryBrodcasting", "TelemetryBroadcast\TelemetryBrodcasting.csproj", "{72207CBA-E957-4CF2-B4F6-81E296BB714A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

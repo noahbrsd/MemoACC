@@ -1,13 +1,14 @@
-using RaceElement.Broadcast.Structs;
-using RaceElement.Util;
+using Telemetry.Broadcast.Structs;
+using Telemetry.Util;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace RaceElement.Broadcast;
+namespace Telemetry.Broadcast;
 
 public enum OutboundMessageTypes : byte
 {
@@ -21,8 +22,8 @@ public enum OutboundMessageTypes : byte
     CHANGE_FOCUS = 50,
     INSTANT_REPLAY_REQUEST = 51,
 
-    PLAY_MANUAL_REPLAY_HIGHLIGHT = 52, // TODO, but planned
-    SAVE_MANUAL_REPLAY_HIGHLIGHT = 60  // TODO, but planned: saving manual replays gives distributed clients the possibility to see the play the same replay
+    PLAY_MANUAL_REPLAY_HIGHLIGHT = 52,
+    SAVE_MANUAL_REPLAY_HIGHLIGHT = 60  
 }
 
 public enum InboundMessageTypes : byte
@@ -66,6 +67,7 @@ public sealed class BroadcastingNetworkProtocol
     public delegate void BroadcastingEventDelegate(string sender, BroadcastingEvent evt);
     public event BroadcastingEventDelegate OnBroadcastingEvent;
 
+    public event Action<string[]> DriverNamesReceived;
 
 
     #endregion
@@ -74,7 +76,10 @@ public sealed class BroadcastingNetworkProtocol
 
     // To avoid huge UDP pakets for longer entry lists, we will first receive the indexes of cars and drivers,
     // cache the entries and wait for the detailled updates
-    List<CarInfo> _entryListCars = [];
+    
+    private List<CarInfo> _entryListCars = new List<CarInfo>();
+
+    private List<string> _driverNames = new List<string>();
 
     #endregion
 
@@ -96,16 +101,18 @@ public sealed class BroadcastingNetworkProtocol
         Send = sendMessageDelegate;
     }
 
-    internal void ProcessMessage(BinaryReader br)
+    internal async void ProcessMessage(BinaryReader br)
     {
         try
         {
             // Any message starts with an 1-byte command type
             var messageType = (InboundMessageTypes)br.ReadByte();
+            Console.WriteLine($"Processing message of type: {messageType}");
             switch (messageType)
             {
                 case InboundMessageTypes.REGISTRATION_RESULT:
                     {
+                        
                         ConnectionId = br.ReadInt32();
                         var connectionSuccess = br.ReadByte() > 0;
                         var isReadonly = br.ReadByte() == 0;
@@ -113,14 +120,18 @@ public sealed class BroadcastingNetworkProtocol
 
                         OnConnectionStateChanged?.Invoke(ConnectionId, connectionSuccess, isReadonly, errMsg);
 
-                        // In case this was successful, we will request the initial data
+                        
+                        
                         RequestEntryList();
+                        await WaitForEntryList();
                         RequestTrackData();
                     }
                     break;
                 case InboundMessageTypes.ENTRY_LIST:
                     {
+                        
                         _entryListCars.Clear();
+                        _driverNames.Clear();
 
                         var connectionId = br.ReadInt32();
                         var carEntryCount = br.ReadUInt16();
@@ -134,11 +145,11 @@ public sealed class BroadcastingNetworkProtocol
                     {
 
                         var carId = br.ReadUInt16();
-
+                        
                         var carInfo = _entryListCars.SingleOrDefault(x => x.CarIndex == carId);
                         if (carInfo == null)
                         {
-                            //System.Diagnostics.Debug.WriteLine($"Entry list update for unknown carIndex {carId}");
+                            
                             break;
                         }
 
@@ -164,9 +175,16 @@ public sealed class BroadcastingNetworkProtocol
                             driverInfo.Nationality = (NationalityEnum)br.ReadUInt16();
 
                             carInfo.AddDriver(driverInfo);
+                            Console.WriteLine($"Added driver {driverInfo.FirstName} {driverInfo.LastName} to car {carInfo.CarIndex}");
+                            _driverNames.Add($"{driverInfo.FirstName} {driverInfo.LastName}"); // Add driver names$
+                            
+                            _entryListCars.Add(carInfo);
+                            
                         }
-
+                        NotifyEntryListComplete(); // Notifie que la liste est complète
                         OnEntrylistUpdate?.Invoke(ConnectionIdentifier, carInfo);
+
+                        DriverNamesReceived?.Invoke(_entryListCars.SelectMany(car => car.Drivers.Select(driver => driver.LastName)).ToArray());
                     }
                     break;
                 case InboundMessageTypes.REALTIME_UPDATE:
@@ -237,11 +255,12 @@ public sealed class BroadcastingNetworkProtocol
                             {
                                 lastEntrylistRequest = DateTime.Now;
                                 RequestEntryList();
-                                //System.Diagnostics.Debug.WriteLine($"CarUpdate {carUpdate.CarIndex}|{carUpdate.DriverIndex} not know, will ask for new EntryList");
+                                
                             }
                         }
                         else
                         {
+                            
                             OnRealtimeCarUpdate?.Invoke(ConnectionIdentifier, carUpdate);
                         }
                     }
@@ -298,6 +317,7 @@ public sealed class BroadcastingNetworkProtocol
                     }
                     break;
                 default:
+                    Console.WriteLine($"Unhandled message type: {messageType}");
                     break;
             }
         }
@@ -410,6 +430,7 @@ public sealed class BroadcastingNetworkProtocol
     /// </summary>
     private void RequestEntryList()
     {
+        Console.WriteLine("Sending request for entry list...");
         using (var ms = new MemoryStream())
         using (var br = new BinaryWriter(ms))
         {
@@ -527,4 +548,44 @@ public sealed class BroadcastingNetworkProtocol
         RequestEntryList();
         RequestTrackData();
     }
+
+    public string[] getDriverName()
+    {
+        return _driverNames.ToArray();
+    }
+
+    public List<CarInfo> GetEntryListCars()
+    {
+        return _entryListCars;
+    }
+
+    private async Task WaitForEntryList()
+{
+    for (int i = 0; i < 10; i++)  // Essaie plusieurs fois
+    {
+        if (_entryListCars.Count > 0)
+        {
+            Console.WriteLine("Entry list received.");
+            break;
+        }
+        Console.WriteLine("Waiting for entry list...");
+        await Task.Delay(500);  // Attendre un peu avant de vérifier à nouveau
+    }
+
+    if (_entryListCars.Count == 0)
+    {
+        Console.WriteLine("No entry list received after waiting.");
+    }
+    }
+    public event Action OnEntryListComplete;
+
+    public void NotifyEntryListComplete()
+    {
+        if (_entryListCars.Count > 0)
+        {
+            OnEntryListComplete?.Invoke();
+        }
+    }
+
+
 }

@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RaceElementBroadcast\RaceElementBrodcasting.csproj" />
-    <ProjectReference Include="..\RaceElementUtil\RaceElementUtil.csproj" />
+    <ProjectReference Include="..\TelemetryBroadcast\TelemetryBrodcasting.csproj" />
+    <ProjectReference Include="..\TelemetryUtil\TelemetryUtil.csproj" />
   </ItemGroup>
 
 </Project>

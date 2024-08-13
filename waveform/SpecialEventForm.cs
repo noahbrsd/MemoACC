@@ -2,11 +2,10 @@ using System;
 using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
-using RaceElement.Broadcast;
+using Telemetry.Broadcast;
 using System.Threading.Tasks;
 using System.Collections.Generic; 
-using RaceElement.Broadcast.Structs;
-
+using Telemetry.Broadcast.Structs;
 
 
 
@@ -17,94 +16,78 @@ namespace MemoPilotes
     
     public partial class SpeMainForm : Form
     {
-        private ACCUdpRemoteClient _udpClient;  // Déclaration de _udpClient
+        private ACCUdpRemoteClient _udpClient;  // Creation of a new UDP client
 
         [System.Runtime.InteropServices.DllImport("kernel32.dll")]
         private static extern bool AllocConsole();
         public SpeMainForm()
-{
-    try
-    {
-        AllocConsole();
-        InitializeComponent();
+        {
+            try
+            {
+                AllocConsole();
+                InitializeComponent();    
+                Console.WriteLine("MainForm: Initialition of the UDP client.");
+                DatabaseHelper.InitializeDatabase();
+                // Initialize the UDP client
+                string ip = "127.0.0.1"; 
+                int port = 9000; // port UDP used by the server
         
-        Console.WriteLine("MainForm: Initialisation de l'application.");
-        DatabaseHelper.InitializeDatabase();
-        // Initialisation de l'UDP client avec les paramètres appropriés
-        string ip = "127.0.0.1"; // Remplacez par l'adresse IP correcte
-        int port = 9000; // Remplacez par le port correct
-        // string displayName = "My Display Name";
-        // string connectionPassword = "password";
-        // string commandPassword = "cmdPassword";
-        // int msRealtimeUpdateInterval = 1000;
-        var config = BroadcastConfig.GetConfiguration();
+                var config = BroadcastConfig.GetConfiguration();
 
-        _udpClient = new ACCUdpRemoteClient(ip, config.UpdListenerPort, "MyDisplayName", config.ConnectionPassword, config.CommandPassword, port);
-        Console.WriteLine("MainForm: UDP Client initialisé.");
-        // _udpClient.MessageHandler.OnEntryListComplete += OnEntryListComplete; // Abonnement à l'événement
-        // // Récupérez les noms des pilotes pour les afficher dans l'interface
-        // string[] nomsDesPilotes = ObtenirNomsDesPilotes();
-        // Console.WriteLine("MainForm: Noms des pilotes récupérés.");
-        // listBoxPilotes.Items.AddRange(nomsDesPilotes);
-        // Console.WriteLine("MainForm: Noms des pilotes ajoutés au ListBox.");
-        // foreach (var nom in nomsDesPilotes)
-        // {
-        //     Console.WriteLine($"MainForm: Pilote ajouté - {nom}");
-        // }
-        // DatabaseHelper.InitializeDatabase();
-        // ChargerPilotes();
-        Task.Run(async () => await InitializePilots());
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"MainForm: Exception encountered - {ex.Message}");
-        Console.WriteLine(ex.StackTrace);
-    }
-}
+                _udpClient = new ACCUdpRemoteClient(ip, config.UpdListenerPort, "MyDisplayName", config.ConnectionPassword, config.CommandPassword, port);
+                Console.WriteLine("MainForm: Initialisation done.");        
+                Task.Run(async () => await InitializePilots());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"MainForm: Exception encountered - {ex.Message}");
+                Console.WriteLine(ex.StackTrace);
+            }
+        }
 
-    public async Task InitializePilots()   
-    {
-        // Attendre un peu pour donner le temps à l'UDP client de se connecter et de recevoir les données
-        await Task.Delay(1000);
+        public async Task InitializePilots()   
+        {
+            // Create a delay to wait for the UDP client to be ready
+            await Task.Delay(1000);
 
-        // Récupérer les noms des pilotes
-        string[] nomsDesPilotes = await ObtenirNomsDesPilotesAsync();
-        AjouterNomsDesPilotesAuListBox(nomsDesPilotes);
-    }
+            // Get the list of driver names
+            string[] nomsDesPilotes = await GetDriverNamesAsync();
+            AddDriverNamesToListBox(nomsDesPilotes);
+        }
 
         private async Task OnEntryListComplete()
         {
             Console.WriteLine("MainForm: Entry list complete. Retrieving pilot names.");
-        
-            // Appeler la méthode pour récupérer les noms des pilotes
-            string[] nomsDesPilotes = await ObtenirNomsDesPilotesAsync();
+            
+            // Get the list of driver names
+            string[] nomsDesPilotes = await GetDriverNamesAsync();
             listBoxPilotes.Items.AddRange(nomsDesPilotes);
         }
         private async Task ChargerPilotes()
         {
-            // Supposons que nous ayons une méthode pour obtenir les noms des pilotes
-            var pilotes = await ObtenirNomsDesPilotesAsync();
-            foreach (var pilote in pilotes.Take(100))  // Limitation à 35 pilotes
+            // Get the list of driver names
+            var pilotes = await GetDriverNamesAsync();
+            foreach (var pilote in pilotes.Take(35))  // Add only the first 35 drivers (if you need more, use the special event or increase this number)
             {
                 listBoxPilotes.Items.Add(pilote);
-                Console.WriteLine($"Pilote ajouté : {pilote}");
+                Console.WriteLine($"Driver add: {pilote}");
             }
         }
 
-        private void buttonEnregistrer_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e) // Save the note of the selected driver
         {
             if (listBoxPilotes.SelectedItem != null && !string.IsNullOrEmpty(textBoxNote.Text))
             {
                 string nomPilote = listBoxPilotes.SelectedItem.ToString();
                 string note = textBoxNote.Text;
                 DatabaseHelper.AjouterOuMettreAJourPilote(nomPilote, note);
-                MessageBox.Show("Note enregistrée !");
+                MessageBox.Show("Note saved !");
                 textBoxNote.Clear();
-                // await ChargerPilotes();  // Recharger les pilotes pour mettre à jour les notes
+                    
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner un pilote et entrer une note.");
+                MessageBox.Show("Please select a driver and enter a note.");
             }
         }
 
@@ -114,170 +97,127 @@ namespace MemoPilotes
             {
                 string nomPilote = listBoxPilotes.SelectedItem.ToString();
                 string note = DatabaseHelper.ObtenirNotePilote(nomPilote);
-                labelNoteExistante.Text = note ?? "Aucune note enregistrée.";
+                labelNoteExistante.Text = note ?? "No note recorded.";
             }
         }
 
-        // private void buttonSpecialEvent_Click(object sender, EventArgs e)
-        // {
-        //     // Ouvre l'interface spéciale pour les événements avec jusqu'à 100 pilotes
-        //     var specialForm = new SpecialEventForm();
-        //     specialForm.ShowDialog();
-        // }
-
-        // private string[] ObtenirNomsDesPilotes()
-        // {
-        //     Console.WriteLine("ObtenirNomsDesPilotes: Demande des données au client UDP.");
-
-        //     // Demande des données à l'UDP client
-        //     _udpClient.RequestData();
-        //     System.Threading.Thread.Sleep(4000); 
-
-        //     Console.WriteLine("ObtenirNomsDesPilotes: Données demandées.");
-
-        //     // Obtient la liste des pilotes depuis le client
-        //     List<CarInfo> cars = _udpClient.GetPilots();
-
-        //     if (cars == null || cars.Count == 0)
-        //     {
-        //         string[] drivername = { "Aucun pilote trouvé" };
-        //         Console.WriteLine("ObtenirNomsDesPilotes: Aucune voiture récupérée.");
-        //         drivername = ObtenirNomsDesPilotes();
-        //         return drivername;
-        //     }
-
-        //     Console.WriteLine($"ObtenirNomsDesPilotes: {cars.Count} voitures récupérées.");
-
-        //     // Extraire les noms des pilotes à partir de la liste des voitures
-        //     List<string> driverNames = new List<string>();
-        //     foreach (var car in cars)
-        //     {
-        //         Console.WriteLine($"ObtenirNomsDesPilotes: Traitement de la voiture {car.CarIndex}.");
-
-        //         foreach (var driver in car.Drivers)
-        //         {
-        //             string driverName = $"{driver.FirstName} {driver.LastName}";
-        //             driverNames.Add(driverName);
-        //             Console.WriteLine($"ObtenirNomsDesPilotes: Pilote récupéré - {driverName}.");
-        //         }
-        //     }
-
-        //     // Retourner un tableau de noms de pilotes
-        //     return driverNames.ToArray();
-        // }
-        private async Task<string[]> ObtenirNomsDesPilotesAsync()
-    {
-        Console.WriteLine("ObtenirNomsDesPilotes: Demande des données au client UDP.");
-
-        // Demande des données à l'UDP client
-        _udpClient.RequestData();
-
-        // Attendre un délai pour que les données soient reçues
-        await Task.Delay(4000);
-
-        Console.WriteLine("ObtenirNomsDesPilotes: Données demandées.");
-
-        // Obtient la liste des pilotes depuis le client
-        List<CarInfo> cars = _udpClient.GetPilots();
-
-        if (cars == null || cars.Count == 0)
-        {
-            Console.WriteLine("ObtenirNomsDesPilotes: Aucune voiture récupérée.");
-            return new string[0];
+        private void buttonSpecialEvent_Click(object sender, EventArgs e) // Open the special event form
+        {            
+            var specialForm = new SpeMainForm();
+            specialForm.ShowDialog();
         }
 
-        Console.WriteLine($"ObtenirNomsDesPilotes: {cars.Count} voitures récupérées.");
-
-        // Extraire les noms des pilotes à partir de la liste des voitures
-        List<string> driverNames = new List<string>();
-        foreach (var car in cars)
+        private async Task<string[]> GetDriverNamesAsync() // Get the driver names from the UDP client
         {
-            Console.WriteLine($"ObtenirNomsDesPilotes: Traitement de la voiture {car.CarIndex}.");
+            Console.WriteLine("GetDriverNamesAsync: requested UDP data.");
 
-            foreach (var driver in car.Drivers)
+            // Request data from the UDP client
+            _udpClient.RequestData();
+
+            // Wait for the data to be received
+            await Task.Delay(4000);
+
+            Console.WriteLine("GetDriverNamesAsync: Data requested.");
+
+            // Get the list of cars from the UDP client
+            List<CarInfo> cars = _udpClient.GetPilots();
+
+            if (cars == null || cars.Count == 0)
             {
-                string driverName = $"{driver.FirstName} {driver.LastName}";
-                // Ajout uniquement si le nom n'est pas déjà dans la liste
-                if (!driverNames.Contains(driverName))
+                Console.WriteLine("GetDriverNamesAsync: No car find.");
+                return new string[0];
+            }
+
+            Console.WriteLine($"GetDriverNamesAsync: {cars.Count} salvaged cars.");
+
+            // Get the list of driver names from the cars list
+            List<string> driverNames = new List<string>();
+            foreach (var car in cars)
+            {
+                Console.WriteLine($"GetDriverNamesAsync: Car treatment {car.CarIndex}.");
+
+                foreach (var driver in car.Drivers)
                 {
-                    driverNames.Add(driverName);
-                    Console.WriteLine($"ObtenirNomsDesPilotes: Pilote récupéré - {driverName}.");
+                    string driverName = $"{driver.FirstName} {driver.LastName}";
+                    // Add the driver name to the list if it doesn't already exist
+                    if (!driverNames.Contains(driverName))
+                    {
+                        driverNames.Add(driverName);
+                        Console.WriteLine($"GetDriverNamesAsync: Driver recovered - {driverName}.");
+                    }
                 }
             }
+
+            return driverNames.ToArray();
         }
 
-        return driverNames.ToArray();
-    }
+            private void AddDriverNamesToListBox(string[] nomsDesPilotes)
+        {
+            // Add the driver names to the ListBox 
+            if (listBoxPilotes.InvokeRequired)
+            {
+                listBoxPilotes.Invoke(new Action(() => listBoxPilotes.Items.AddRange(nomsDesPilotes)));
+            }
+            else
+            {
+                listBoxPilotes.Items.AddRange(nomsDesPilotes);
+            }
 
-        private void AjouterNomsDesPilotesAuListBox(string[] nomsDesPilotes)
-    {
-        // Utiliser Invoke pour s'assurer que les mises à jour du contrôle UI se font sur le thread UI
-        if (listBoxPilotes.InvokeRequired)
-        {
-            listBoxPilotes.Invoke(new Action(() => listBoxPilotes.Items.AddRange(nomsDesPilotes)));
+            Console.WriteLine("MainForm:.Driver names added to ListBox");
+            foreach (var nom in nomsDesPilotes)
+            {
+                Console.WriteLine($"MainForm: Driver added - {nom}");
+            }
         }
-        else
+
+
+            private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+            {
+                // Shutdown the UDP client
+                _udpClient.Shutdown();
+                _udpClient.Dispose();
+            }
+            
+
+        // Event handler to display driver names
+
+        private void UpdateDriverlist(string[] nomsDesPilotes)
         {
+            listBoxPilotes.Items.Clear();
             listBoxPilotes.Items.AddRange(nomsDesPilotes);
+            Console.WriteLine("MainForm: Driver names added to ListBox.");
         }
 
-        Console.WriteLine("MainForm: Noms des pilotes ajoutés au ListBox.");
-        foreach (var nom in nomsDesPilotes)
+        private async void buttonUpdate_Click(object sender, EventArgs e)
         {
-            Console.WriteLine($"MainForm: Pilote ajouté - {nom}");
+            // Get the list of driver names
+            string[] nomsDesPilotes = await GetDriverNamesAsync();
+            UpdateDriverlist(nomsDesPilotes);
         }
-    }
 
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void buttonCopyNote_Click(object sender, EventArgs e)
         {
-            // Arrêter l'UDP client proprement lors de la fermeture du formulaire
-            _udpClient.Shutdown();
-            _udpClient.Dispose();
+            string nomPilote = listBoxPilotes.SelectedItem.ToString();
+
+            // Check if a note is selected
+            if (DatabaseHelper.ObtenirNotePilote(nomPilote) != null)
+            {
+
+                // Get the note text
+                string noteText = DatabaseHelper.ObtenirNotePilote(nomPilote);
+
+                // Copy the note to the clipboard
+                Clipboard.SetText(noteText);
+            }
+            else
+            {
+                // Display an error message if no note is selected
+                MessageBox.Show(" No note selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-        
 
-    // Event handler to display driver names
-    
-    private void MettreAJourListePilotes(string[] nomsDesPilotes)
-    {
-        listBoxPilotes.Items.Clear();
-        listBoxPilotes.Items.AddRange(nomsDesPilotes);
-        Console.WriteLine("MainForm: Noms des pilotes ajoutés au ListBox.");
-    }
-
-    private async void buttonUpdate_Click(object sender, EventArgs e)
-    {
-        // Appeler la méthode pour récupérer les noms des pilotes
-        string[] nomsDesPilotes = await ObtenirNomsDesPilotesAsync();
-        MettreAJourListePilotes(nomsDesPilotes);
-    }
-
-    private void buttonCopyNote_Click(object sender, EventArgs e){
-    string nomPilote = listBoxPilotes.SelectedItem.ToString();
-
-    // Vérifie si une note est sélectionnée dans la ListBox des notes
-    if (DatabaseHelper.ObtenirNotePilote(nomPilote) != null)
-    {
-
-        // Récupère le texte de la note sélectionnée
-        string noteText = DatabaseHelper.ObtenirNotePilote(nomPilote);
-
-        // Copie le texte dans le presse-papiers
-        Clipboard.SetText(noteText);
-
-        // Optionnel: Affiche un message de confirmation
-        // MessageBox.Show("La note a été copiée dans le presse-papiers.", "Note copiée", MessageBoxButtons.OK, MessageBoxIcon.Information);
-    }
-    else
-    {
-        // Optionnel: Affiche un message d'erreur si aucune note n'est sélectionnée
-        MessageBox.Show("Aucune note sélectionnée à copier.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    }
-}
-
-    }     
-}       
+        }     
+        }       
             
             
         
