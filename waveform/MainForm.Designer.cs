@@ -11,6 +11,12 @@ namespace MemoPilotes
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonCopyNote;
         private System.Windows.Forms.Button buttonResetUdp;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.TextBox textBoxFirstName;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.Button buttonAddManualDriver;
+
 
         protected override void Dispose(bool disposing)
         {
@@ -108,6 +114,50 @@ namespace MemoPilotes
             this.buttonResetUdp.Text = "Reset UDP";
             this.buttonResetUdp.UseVisualStyleBackColor = true;
             this.buttonResetUdp.Click += new System.EventHandler(this.buttonResetUdp_Click);
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.labelFirstName.Location = new System.Drawing.Point(220, 320);  // Adjust the position
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(70, 20);
+            this.labelFirstName.Text = "First Name";
+            // 
+            // textBoxFirstName
+            // 
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
+            this.textBoxFirstName.Location = new System.Drawing.Point(300, 320);  // Adjust the position
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(120, 20);
+            // 
+            // labelLastName
+            // 
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelLastName.Location = new System.Drawing.Point(220, 350);  // Adjust the position
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(70, 20);
+            this.labelLastName.Text = "Last Name";
+            // 
+            // textBoxLastName
+            // 
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.textBoxLastName.Location = new System.Drawing.Point(300, 350);  // Adjust the position
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(120, 20);
+            // 
+            // buttonAddManualDriver
+            // 
+            this.buttonAddManualDriver = new System.Windows.Forms.Button();
+            this.buttonAddManualDriver.Location = new System.Drawing.Point(430, 350);  // Adjust the position
+            this.buttonAddManualDriver.Name = "buttonAddManualDriver";
+            this.buttonAddManualDriver.Size = new System.Drawing.Size(100, 23);
+            this.buttonAddManualDriver.Text = "Add Driver";
+            this.buttonAddManualDriver.UseVisualStyleBackColor = true;
+            this.buttonAddManualDriver.Click += new System.EventHandler(this.buttonAddManualDriver_Click);
+
+            
+            
+
 
             
             
@@ -126,6 +176,11 @@ namespace MemoPilotes
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonCopyNote);
             this.Controls.Add(this.buttonResetUdp);
+            this.Controls.Add(this.labelFirstName);
+            this.Controls.Add(this.textBoxFirstName);
+            this.Controls.Add(this.labelLastName);
+            this.Controls.Add(this.textBoxLastName);
+            this.Controls.Add(this.buttonAddManualDriver);
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);

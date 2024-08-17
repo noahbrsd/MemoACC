@@ -28,7 +28,7 @@ namespace MemoPilotes
                 InitializeComponent();    
                 Console.WriteLine("MainForm: Initialition of the UDP client.");
                 DatabaseHelper.InitializeDatabase();
-                // Initialize the UDP client
+                // Initialize the UDP client 
                 string ip = "127.0.0.1"; 
                 int port = 9000; // port UDP used by the server
         
@@ -214,6 +214,41 @@ namespace MemoPilotes
                 // Display an error message if no note is selected
                 MessageBox.Show(" No note selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+        private void buttonAddManualDriver_Click(object sender, EventArgs e)
+        {
+            // Get the first and last names from the text boxes
+            string firstName = textBoxFirstName.Text.Trim();
+            string lastName = textBoxLastName.Text.Trim();
+
+            // Check that both fields are filled
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Please enter both the first name and last name.");
+                return;
+            }
+
+            // Combine first and last names to create the driver's full name
+            string fullName = $"{firstName} {lastName}";
+
+            //check if this driver already exists in the list
+            if (listBoxPilotes.Items.Contains(fullName))
+            {
+                MessageBox.Show("This driver is already in the list.");
+                return;
+            }
+
+            // Add the driver's name to the ListBox
+            listBoxPilotes.Items.Add(fullName);
+
+            
+
+            // Clear the text boxes after adding
+            textBoxFirstName.Clear();
+            textBoxLastName.Clear();
+            textBoxNote.Clear();
+
+            MessageBox.Show("Driver added successfully!");
         }
 
         
