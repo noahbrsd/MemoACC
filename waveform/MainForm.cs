@@ -217,6 +217,38 @@ namespace MemoPilotes
             }
         }
 
+        private void buttonResetUdp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Shut down and dispose of the existing UDP client
+                _udpClient.Shutdown();
+                _udpClient.Dispose();
+
+                // Clear the list of drivers from the UI
+                listBoxPilotes.Items.Clear();
+                Console.WriteLine("MainForm: Driver list cleared.");
+
+                // Reinitialize the UDP client
+                Console.WriteLine("MainForm: Resetting UDP connection.");
+                string ip = "127.0.0.1";
+                int port = 9000;
+                var config = BroadcastConfig.GetConfiguration();
+
+                _udpClient = new ACCUdpRemoteClient(ip, config.UpdListenerPort, "MyDisplayName", config.ConnectionPassword, config.CommandPassword, port);
+                Console.WriteLine("MainForm: UDP connection reset and reinitialized.");
+
+                // Optionally, re-fetch and display the drivers if needed
+                Task.Run(async () => await InitializePilots());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"MainForm: Exception during UDP reset - {ex.Message}");
+                MessageBox.Show("An error occurred while resetting the UDP connection. Please try again.");
+            }
+        }
+
+
         }     
         }       
             

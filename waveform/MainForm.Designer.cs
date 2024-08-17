@@ -10,6 +10,8 @@ namespace MemoPilotes
         private System.Windows.Forms.Button buttonSpecialEvent;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonCopyNote;
+        private System.Windows.Forms.Button buttonResetUdp;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -96,6 +98,21 @@ namespace MemoPilotes
             this.buttonCopyNote.UseVisualStyleBackColor = true;
             this.buttonCopyNote.Click += new System.EventHandler(this.buttonCopyNote_Click);
             // 
+            // buttonResetUdp
+            // 
+            this.buttonResetUdp = new System.Windows.Forms.Button();
+            this.buttonResetUdp.Location = new System.Drawing.Point(518, 244);  // Adjust position as necessary
+            this.buttonResetUdp.Name = "buttonResetUdp";
+            this.buttonResetUdp.Size = new System.Drawing.Size(100, 23);
+            this.buttonResetUdp.TabIndex = 6;
+            this.buttonResetUdp.Text = "Reset UDP";
+            this.buttonResetUdp.UseVisualStyleBackColor = true;
+            this.buttonResetUdp.Click += new System.EventHandler(this.buttonResetUdp_Click);
+
+            
+            
+
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +125,7 @@ namespace MemoPilotes
             this.Controls.Add(this.listBoxPilotes);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonCopyNote);
+            this.Controls.Add(this.buttonResetUdp);
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);

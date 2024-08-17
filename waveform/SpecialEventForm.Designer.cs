@@ -104,6 +104,7 @@ namespace MemoPilotes
             this.Controls.Add(this.listBoxPilotes);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonCopyNote);
+            
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);
