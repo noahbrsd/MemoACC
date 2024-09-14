@@ -16,6 +16,8 @@ namespace MemoPilotes
         private System.Windows.Forms.Label labelLastName;
         private System.Windows.Forms.TextBox textBoxLastName;
         private System.Windows.Forms.Button buttonAddManualDriver;
+        private System.Windows.Forms.Button buttonSeeDriverNotes;
+
 
 
         protected override void Dispose(bool disposing)
@@ -34,6 +36,7 @@ namespace MemoPilotes
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelNoteExistante = new System.Windows.Forms.Label();
             this.buttonSpecialEvent = new System.Windows.Forms.Button();
+            
             this.SuspendLayout();
             // 
             // listBoxPilotes
@@ -154,6 +157,19 @@ namespace MemoPilotes
             this.buttonAddManualDriver.Text = "Add Driver";
             this.buttonAddManualDriver.UseVisualStyleBackColor = true;
             this.buttonAddManualDriver.Click += new System.EventHandler(this.buttonAddManualDriver_Click);
+            // 
+            // buttonSeeDriverNotes
+            // 
+            this.buttonSeeDriverNotes = new System.Windows.Forms.Button();
+            this.buttonSeeDriverNotes.Location = new System.Drawing.Point(518, 300);  // Adjust the position
+            this.buttonSeeDriverNotes.Name = "buttonSeeDriverNotes";
+            this.buttonSeeDriverNotes.Size = new System.Drawing.Size(100, 23);
+            this.buttonSeeDriverNotes.Text = "See Driver Notes";
+            this.buttonSeeDriverNotes.UseVisualStyleBackColor = true;
+            this.buttonSeeDriverNotes.Click += new System.EventHandler(this.buttonSeeDriverNotes_Click);
+
+            
+            
 
             
             
@@ -181,6 +197,7 @@ namespace MemoPilotes
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.buttonAddManualDriver);
+            this.Controls.Add(this.buttonSeeDriverNotes);
             this.Name = "MainForm";
             this.Text = "Memo Pilotes";
             this.ResumeLayout(false);

@@ -282,6 +282,37 @@ namespace MemoPilotes
 
             MessageBox.Show("Driver added successfully!");
         }
+        private async void buttonSeeDriverNotes_Click(object sender, EventArgs e)
+        {
+            // Get the list of driver names from the current session
+            string[] driverNames = await GetDriverNamesAsync();
+
+            // Prepare a list to hold the driver name and note pairs
+            List<string> driverNotesList = new List<string>();
+
+            foreach (var driverName in driverNames)
+            {
+                // Check if there is a note for the driver in the database
+                string note = DatabaseHelper.ObtenirNotePilote(driverName);
+
+                if (string.IsNullOrEmpty(note))
+                {
+                    // If no note is found, indicate "No note"
+                    driverNotesList.Add($"{driverName} ==> No note");
+                }
+                else
+                {
+                    // Add the driver and their note to the list
+                    driverNotesList.Add($"{driverName} ==> {note}");
+                }
+            }
+
+            // Pass the driver notes list to the new form
+            var driverNotesForm = new DriverNotesForm(driverNotesList.ToArray());
+            driverNotesForm.ShowDialog();
+        }
+
+
 
 
 
